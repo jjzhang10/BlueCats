@@ -1,0 +1,27 @@
+<div class="col-md-4 " >
+		<h1>
+       <%= gravatar_for @applicant %>
+       <div><%= @applicant.name.capitalize %></div>
+       <div id="show_email"><%= @applicant.email %><div>
+     </h1>
+</div>
+
+<div class="col-md-1"></div>  
+
+
+<div class="col-md-7">
+	<% if @applicant.admin? %>
+		<h1>I'm an administrator, I can 
+			<%= link_to "view all applicants", applicants_path %>.
+		</h1>
+	<% else %>
+		<h1>
+			My applications
+		</h1>
+		<ul>
+			<li>aaaaaaaaaaaa</li>
+			<li>bbbbbbbbbbbbbbbb</li>
+			<li>ccccccccccccc</li>
+		</ul> 
+	<% end %>
+</div>  
