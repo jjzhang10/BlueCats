@@ -1,0 +1,71 @@
+class PasswordResetsController < ApplicationController
+	before_filter :get_applicant, only: [:edit, :update]
+	before_filter :valid_applicant, only: [:edit, :update]
+	before_filter :check_expiration, only: [:edit, :update]
+
+	def get_applicant
+		@applicant=Applicant.where(email: params[:email]).first
+	end
+	
+	def	valid_applicant
+		unless(@applicant && @applicant.activated? && @applicant.authenticated?(:reset, params[:id]))
+			unless @applicant.activated?
+				flash[:danger]="Your account hasn't been activated yet."
+			end
+			redirect_to root_url
+		end
+	end
+	
+	def applicant_params
+		params.require(:applicant).permit(:password, :password_confirmation)
+	end
+	
+	def password_blank?
+		params[:applicant][:password].blank?
+	end
+	
+	def check_expiration
+	  if @applicant.password_reset_expired?
+	 		flash[:danger]="Password reset has expired."
+	 		redirect_to new_password_reset_url
+	  end
+	end
+	
+	private :get_applicant, :valid_applicant, :applicant_params, :password_blank?, :check_expiration
+	
+  def new
+  end
+
+  def create
+  	@applicant = Applicant.where(email: params[:password_reset][:email].downcase).first
+    if @applicant
+      @applicant.create_reset_digest
+      @applicant.send_password_reset_email
+      flash[:info] = "Email sent with password reset instructions"
+      redirect_to root_url
+    else
+      flash.now[:danger] = "Email address not found"
+      render 'new'
+    end
+  end
+  
+  def edit
+  end
+  
+  def update
+  	if password_blank?
+  		flash.now[:danger]="Password can't be blank."
+  		render 'edit'
+  	elsif @applicant.update_attributes(applicant_params)
+  		log_in @applicant
+  		flash[:success]="Password has been reset."
+  		redirect_to @applicant
+  	else
+  		render 'edit'
+  	end
+  end
+end
+
+
+
+

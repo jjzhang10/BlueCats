@@ -1,0 +1,42 @@
+<header class="navbar navbar-static-top">
+      <div class="container">
+
+        <%= link_to image_tag("logo.png", alt: "SH logo"),
+            'http://scottyshouse.org/', id: "logo"%>
+        
+          <ul class="nav navbar-nav navbar-right" id="nav-bar">
+            <li><%= link_to "Home",   home_path %></li>
+            <li><%= link_to "Help",   help_path %></li>
+
+						<li class="dropdown">
+				      <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Apply Now <span class="caret"></span></a>
+				      <ul class="dropdown-menu" >
+						    <li><%= link_to "Requirement", '#'%></li>
+								<li class="divider"></li>
+						    <li><%= link_to "Practicum", '#'%></li>  
+								<li><%= link_to "Internship", '#'%></li>  
+						  </ul>
+				    </li>
+				    
+				    <% if logged_in? %>
+						  <li class="dropdown">
+						    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  ><%= current_user[:name]%> <span class="caret"></span></a>
+						    <ul class="dropdown-menu" >
+								  <li><%= link_to "My profile", current_user %></li>
+								  <% unless current_user.admin? %>
+								  <li><%= link_to "My application", '#'%></li>
+								  <% end %>
+								  <li><%= link_to "Settings", edit_applicant_path(current_user)%></li>
+									<li class="divider"></li>
+								  <li><%= link_to "Log out", logout_path, method: "delete" %></li>    
+								</ul>
+						  </li>
+						<% else %>
+							<li><%= link_to "Log in", login_path%></li>
+						<% end %>
+          </ul>
+        
+      </div>
+</header>
+
+

@@ -1,0 +1,11 @@
+<h1>Applicants List</h1>
+
+<%= will_paginate %>
+
+<ul class="applicants"> 
+	 
+    <%= render @applicants %>  
+  
+</ul>
+
+<%= will_paginate %>

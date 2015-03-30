@@ -1,0 +1,4 @@
+Hello, <%= @applicant.name %>
+
+Thank you for your interest in Scotty's House. Click on the link below to activate your account:
+<%= edit_account_activation_url(@applicant.activation_token, email: @applicant.email) %>

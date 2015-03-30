@@ -1,0 +1,30 @@
+class SessionsController < ApplicationController
+  def new
+  end
+
+	def create
+		applicant=Applicant.where(email: params[:session][:email].downcase).first
+		if applicant && applicant.authenticate(params[:session][:password])
+			#log_in applicant
+			#params[:session][:remember_me]=='1' ? remember(applicant) : forget(applicant)
+			#redirect_back_or applicant
+			if applicant.activated?
+				log_in applicant
+				params[:session][:remember_me]=='1' ? remember(applicant) : forget(applicant)
+				redirect_back_or applicant
+			else
+				flash[:warning]="Account not activated. Check your email for activation link."
+				redirect_to root_url
+			end
+		else
+			flash.now[:danger]="Invalid email or password."
+			render 'new'
+		end
+	end
+	
+	def destroy
+		log_out if logged_in?
+		redirect_to root_url
+	end
+
+end

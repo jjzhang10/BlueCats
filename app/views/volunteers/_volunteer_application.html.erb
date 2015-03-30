@@ -1,0 +1,68 @@
+<h1>Volunteer Application</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for([@applicant, @volunteer]) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :date_of_birth, "Date of Birth" %>
+      <%= f.text_field :date_of_birth, class: 'form-control' %>
+
+      <%= f.label :email, "Email Address"%>
+      <%= f.email_field :email , class: 'form-control'%>
+      
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+      
+      <%= f.label :mailing_address, "Mailing Address" %>
+      <%= f.text_field :mailing_address, class: 'form-control' %>
+
+      <p>Scotty’s House Child Advocacy Center has several opportunities for Volunteers. All types of volunteers are needed to make services available to families in our community, and we value any skills you may have to help us improve the community in which we live. Listed below are the current Volunteer Opportunities available at Scotty’s House. Please check the areas in which you are most interested:</p>
+      
+   
+      <%= f.label :family_care, class: "col-md-6" do %>
+      	<%= f.check_box :family_care, class: "checkbox-auto" %>
+      	<span>Family Care</span>
+      <% end %>
+      
+   		<%= f.label :medical_volunteer, class:"col-md-6" do %>
+      	<%= f.check_box :medical_volunteer, class: "checkbox-auto" %>
+      	<span>Medical Volunteer</span>
+      <% end %>
+     
+      
+      <%= f.label :ambassador, class:"col-md-6" do %>
+      	<%= f.check_box :ambassador, class: "checkbox-auto" %>
+      	<span>Ambassador</span>
+      <% end %>   
+      
+      <%= f.label :pragram_internship, class:"col-md-6" do %>
+      	<%= f.check_box :pragram_internship, class: "checkbox-auto" %>
+      	<span>Program/Counseling Internship</span>
+      <% end %>   
+      
+      <%= f.label :prevention_volunteer, class:"col-md-6" do %>
+      	<%= f.check_box :prevention_volunteer, class: "checkbox-auto" %>
+      	<span>Prevention Volunteer</span>
+      <% end %>   
+      
+      <%= f.label :additional_volunteer_opportunity, class:"col-md-6" do %>
+      	<%= f.check_box :additional_volunteer_opportunity, class: "checkbox-auto" %>
+      	<span>Additional Volunteer Opportunities*</span>
+      <% end %>  
+      
+      <%= f.label :additional_volunteer_opportunity_spec, "*If you have selected Additional Volunteer Opportunities, please specify:" %>
+      <%= f.text_field :additional_volunteer_opportunity_spec, class: 'form-control' %>
+      
+      <%= f.label :days_available, "Days/Times you will be available to Volunteer:" %>
+      <%= f.text_field :days_available, class: 'form-control' %>
+      
+      <%= hidden_field_tag :step, 1 %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.requirements{
+	h2{
+		font-size:2em;
+		margin-top:5px;
+	}
+	li{
+		font-size:1.3em;
+	}
+}
