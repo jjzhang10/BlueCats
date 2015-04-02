@@ -2,10 +2,44 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
-    <%= form_for([@applicant, @volunteer]) do |f| %>
+    <%= form_for(@volunteer) do |f| %>
 			<%= render 'shared/error_messages' %>
 			
+			<%= f.label :how_learn_about, "How did you learn about Scotty’s House and our Volunteer Program?" %>
+      <%= f.text_area :how_learn_about, class: 'form-control', rows: 5 %>
+      
+      <%= f.label :what_to_gain, "What would you like to gain from your Volunteer experience?" %>
+      <%= f.text_area :what_to_gain, class: 'form-control', rows: 5 %>
+      
+      <p>Are you volunteering for:</p>
+      <%= f.label :class_credit do %>
+      	<%= f.check_box :class_credit, class: "checkbox-auto" %>
+      	<span>Class Credit (Please provide the name of your Instructor.)</span>
+      <% end %>
+      <%= f.text_field :instructor_name, class: 'form-control' %>
+      
+      <%= f.label :organization_credit do %>
+      	<%= f.check_box :organization_credit, class: "checkbox-auto" %>
+      	<span>Organization Credit (Please provide the name of your Organization.)</span>
+      <% end %>
+      <%= f.text_field :organiztion_name, class: 'form-control' %>
+      
+      <%= f.label :organiztion_name do %>
+      	<%= f.check_box :organiztion_name, class: "checkbox-auto" %>
+      	<span>Other (Please explain.)</span>
+      <% end %>
+			<%= f.text_field :other_spec, class: 'form-control' %>
+			
+			<p>Are you currently employed?</p>
+			<%= f.label :employed do %>
+      	<%= f.check_box :employed, class: "checkbox-auto" %>
+      	<span>Currently employed (Name of employer)</span>
+      <% end %>
+			<%= f.text_field :employer_name, class: 'form-control' %>
+			
 			<%= hidden_field_tag :step, 2 %>
+			
+			<%= hidden_field_tag :volunteer_id, @volunteer.id %>
 
       <%= f.submit "Next", class: "btn btn-primary" %>
 		<% end %>

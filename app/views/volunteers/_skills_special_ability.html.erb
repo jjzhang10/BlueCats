@@ -1,0 +1,47 @@
+<h1>Skills & Special Abilities</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@volunteer) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+      <%= f.label :speak do %>
+      	<%= f.check_box :speak, class: "checkbox-auto" %>
+      	<span>Do you speak any language other than English?</span>
+      <% end %>
+      <div class="clearfix"></div>
+      <%= f.label :speak_what, "If yes, what language? " %>
+      <%= f.text_field :speak_what, class: 'form-control' %>
+      
+      <%= f.label :read do %>
+      	<%= f.check_box :read, class: "checkbox-auto" %>
+      	<span>Do you read/write in any language other than English?</span>
+      <% end %>
+      <div class="clearfix"></div>
+      <%= f.label :read_what, "If yes, what language? " %>
+      <%= f.text_field :read_what, class: 'form-control' %>
+      
+      <%= f.label :blind do %>
+      	<%= f.check_box :blind, class: "checkbox-auto" %>
+      	<span>Do you have any experience with blind or hearing impaired persons?</span>
+      <% end %>
+      <div class="clearfix"></div>
+      <%= f.label :blind_experience, "In what capacity? " %>
+      <%= f.text_field :blind_experience, class: 'form-control' %>
+      
+      <%= f.label :handicap do %>
+      	<%= f.check_box :handicap, class: "checkbox-auto" %>
+      	<span>Do you have any experience with handicapped persons?</span>
+      <% end %>
+      <div class="clearfix"></div>
+      <%= f.label :handicap_experience, "In what capacity? " %>
+      <%= f.text_field :handicap_experience, class: 'form-control' %>
+			
+			<%= hidden_field_tag :step, 4 %>
+			
+			<%= hidden_field_tag :volunteer_id, @volunteer.id %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+		<% end %>
+  </div>
+</div>

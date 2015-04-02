@@ -15,13 +15,21 @@
 			<%= link_to "view all applicants", applicants_path %>.
 		</h1>
 	<% else %>
+		<div class="jumbotron">
 		<h1>
 			My applications
 		</h1>
-		<ul>
-			<li>aaaaaaaaaaaa</li>
-			<li>bbbbbbbbbbbbbbbb</li>
-			<li>ccccccccccccc</li>
-		</ul> 
+		<% if @applicant.volunteers.first.nil? %>
+			<p id="none">None</p>
+		<% end %>
+		
+		<ul class="volunteers"> 
+			<%= render @volunteers %>    
+		</ul>
+		
+		<% unless current_user.admin? %>
+		<%= link_to "Start new application", new_applicant_volunteer_path(@applicant), class: "center btn btn-lg btn-primary", id: "add-top" %>
+		<% end %>
+		</div>
 	<% end %>
 </div>  

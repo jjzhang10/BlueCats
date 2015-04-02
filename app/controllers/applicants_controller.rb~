@@ -20,7 +20,7 @@ class ApplicantsController < ApplicationController
 			#log_in @applicant
 			#flash[:success]="Account created successfully!"
 			#redirect_to @applicant
-			ApplicantMailer.account_activation(@applicant).deliver
+			@applicant.send_activation_email
 			flash[:info]="Please check your email to activate your account"
 			redirect_to root_url
 		else

@@ -149,3 +149,13 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.checkbox-auto {
+	width: auto;
+  margin-left: 0;
+}
+
+.text-area {
+	row: 15;
+}
+

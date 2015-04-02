@@ -1,0 +1,11 @@
+
+
+<li>
+	
+	 
+	 <%= link_to volunteer.name, applicant_volunteer_path(@applicant, volunteer) %>
+	 <% if !current_user.nil? && !current_user.admin? && !current_user?(@applicant)%>
+	 	 | <%= link_to "Delete", applicant, method: :delete, data: {confirma: "Are you sure?"} %>
+	 <% end %>
+	
+</li>

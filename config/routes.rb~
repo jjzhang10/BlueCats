@@ -13,10 +13,11 @@ AppSys::Application.routes.draw do
 	post 'login' => 'sessions#create'
 	delete 'logout' => 'sessions#destroy'
 
-	resources :applicants
+	resources :applicants do
+		resources :volunteers
+	end
 	resources :account_activations, only: [:edit]
 	resources :password_resets, only: [:new, :create, :edit, :update]
-	resources :volunteers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

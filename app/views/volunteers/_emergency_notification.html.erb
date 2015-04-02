@@ -1,0 +1,27 @@
+<h1>Emergency Notification</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@volunteer) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+      <%= f.label :emergency_name, "Name" %>
+      <%= f.text_field :emergency_name, class: 'form-control' %>
+      
+      <%= f.label :emergency_phone, "Phone number" %>
+      <%= f.text_field :emergency_phone, class: 'form-control' %>
+      
+      <%= f.label :emergency_address, "Address" %>
+      <%= f.text_field :emergency_address, class: 'form-control' %>
+      
+      <%= f.label :emergency_relation, "Relationship" %>
+      <%= f.text_field :emergency_relation, class: 'form-control' %>
+			
+			<%= hidden_field_tag :step, 5 %>
+			
+			<%= hidden_field_tag :volunteer_id, @volunteer.id %>
+
+      <%= f.submit "Finish", class: "btn btn-primary" %>
+		<% end %>
+  </div>
+</div>

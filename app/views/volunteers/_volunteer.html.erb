@@ -1,0 +1,33 @@
+<li>
+	
+	 <% time=volunteer.created_at.strftime("%d %b %Y %H:%M")+":" %>
+	 <% application='' %>
+	 <% if volunteer.family_care %>
+		<% application += " Family Care," %>
+	 <% end %>
+	 <% if volunteer.medical_volunteer %>
+		<% application += " Medical Volunteer," %>
+	 <% end %>
+	 <% if volunteer.ambassador %>
+		<% application += " Ambassador," %>
+	 <% end %>
+	 <% if volunteer.pragram_internship %>
+		<% application += " Program/Counseling Internship," %>
+	 <% end %>
+	 <% if volunteer.prevention_volunteer %>
+		<% application += " Prevention Volunteer," %>
+	 <% end %>
+	 <% if volunteer.additional_volunteer_opportunity %>
+		<% application += " Additional Volunteer Opportunity," %>
+	 <% end %>
+	 <% application=application[0...-1] %>
+	 <span><%= time %></span>
+	 <span><%= application %></span>
+	 <div></div>
+	 <%= link_to "View", applicant_volunteer_path(@applicant, volunteer) %>
+	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant)%>
+	 	 | <%= link_to "Edit", edit_applicant_volunteer_path(@applicant, volunteer) %> 
+	 	 | <%= link_to "Delete", applicant_volunteer_path(@applicant, volunteer), method: :delete, data: {confirma: "Are you sure?"} %>
+	 <% end %>
+	
+</li>
