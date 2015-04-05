@@ -16,19 +16,27 @@
 		</h1>
 	<% else %>
 		<div class="jumbotron">
-		<h1>
-			My applications
-		</h1>
+		<h1 style="font-size: 2.5em;">My applications(Volunteer)</h1>
 		<% if @applicant.volunteers.first.nil? %>
-			<p id="none">None</p>
+			<p id="none" class="center">None</p>
 		<% end %>
 		
 		<ul class="volunteers"> 
 			<%= render @volunteers %>    
 		</ul>
 		
+		<h1 style="font-size: 2.5em;">My applications(Internship)</h1>
+		<% if @applicant.internships.first.nil? %>
+			<p id="none" class="center">None</p>
+		<% end %>
+		
+		<ul class="internships"> 
+			<%= render @internships %>    
+		</ul>
+		
 		<% unless current_user.admin? %>
-		<div class="center"><%= link_to "Start new application", new_applicant_volunteer_path(@applicant), class: "btn btn-lg btn-primary", id: "add-top" %></div>
+		<div class="center"><%= link_to "New internship application", new_applicant_internship_path(@applicant), class: "btn btn-lg btn-primary", id: "add-top" %></div>
+		<div class="center"><%= link_to "New volunteer application", new_applicant_volunteer_path(@applicant), class: "btn btn-lg btn-primary", id: "add-top" %></div>
 		<% end %>
 		</div>
 	<% end %>

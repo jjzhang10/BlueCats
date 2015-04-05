@@ -24,7 +24,7 @@
 	 <span><%= time %></span>
 	 <span><%= application %></span>
 	 <div></div>
-	 <%= link_to "view", applicant_volunteer_path(@applicant, volunteer) %>
+	 <%= link_to "View", applicant_volunteer_path(@applicant, volunteer) %>
 	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant)%>
 	 	 | <%= link_to "Edit", edit_applicant_volunteer_path(@applicant, volunteer) %> 
 	 	 | <%= link_to "Delete", applicant_volunteer_path(@applicant, volunteer), method: :delete, data: {confirma: "Are you sure?"} %>

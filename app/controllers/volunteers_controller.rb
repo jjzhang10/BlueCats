@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
 	before_filter :logged_in_user
 
 	def show
-		@applicant=current_user
+		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first		
 	end
 	

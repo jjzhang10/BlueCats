@@ -11,6 +11,7 @@ class ApplicantsController < ApplicationController
 
 	def show
 		@applicant=Applicant.find(params[:id])
+		@volunteers=@applicant.volunteers.all
 		redirect_to root_url and return unless @applicant.activated?
 	end
 

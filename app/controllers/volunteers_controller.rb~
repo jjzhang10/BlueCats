@@ -44,7 +44,7 @@ class VolunteersController < ApplicationController
 					when 4
 						render '_emergency_notification'
 					when 5
-						flash[:success]="Application submitted."
+						flash[:success]="Application submitted/updated."
 						redirect_to @applicant
 					end
 				else
