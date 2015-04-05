@@ -1,0 +1,35 @@
+<h1>Internship/Practicum Application</h1>
+<h2>Additional Information</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@internship) do |f| %>
+			<%= render 'shared/error_messages' %>   
+            
+      <p>Because of the sensitive nature of issues dealt with at Scotty’s House, we strive to place interns in the most appropriate manner possible to meet the needs of the children and families we serve.</p>
+      
+      <%= f.label :how_hear, "How did you hear about Scotty’s House?" %>
+      <%= f.text_area :how_hear, class: 'form-control', rows: "5" %>
+      
+      <%= f.label :victim, "Have you or a loved one ever been a victim of abuse?" %>
+      <%= f.text_area :victim, class: 'form-control', rows: "5" %>
+      
+      <%= f.label :why_work, "Briefly describe why you would like to work at Scotty’s House:" %>
+      <%= f.text_area :why_work, class: 'form-control', rows: "5" %>
+      
+      <%= f.label :hope_to_do, "What do you hope to do once you have obtained your degree/license? " %>
+      <%= f.text_area :hope_to_do, class: 'form-control', rows: "5" %>
+      
+      <%= f.label :other_language, "List any other languages you speak:" %>
+      <%= f.text_field :other_language, class: 'form-control' %>
+      
+      <%= f.label :other_information, "Please list any other information that may be relevant to your possible internship at SHCAC: " %>
+      <%= f.text_area :other_information, class: 'form-control', rows: "5" %>
+
+      
+      <%= hidden_field_tag :step, 2 %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

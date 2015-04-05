@@ -1,0 +1,91 @@
+<h1>Internship/Practicum Application</h1>
+<h2>General Information</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@internship) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+      
+      <%= f.label :city %>
+      <%= f.text_field :city, class: 'form-control' %>
+      
+      <%= f.label :state %>
+      <%= f.text_field :state, class: 'form-control' %>
+      
+      <%= f.label :zip %>
+      <%= f.text_field :zip, class: 'form-control' %>
+      
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>      
+
+      <p>I am a (please check one):</p>      
+   
+      <%= f.label :counseling_student do %>
+      	<%= f.check_box :counseling_student, class: "checkbox-auto" %>
+      	<span>Counseling Student</span>
+      <% end %>
+      <br>
+      <div style="margin-left:18px;" id="counseling_student" class="hide">
+      <%= f.label :university_a, "University" %>
+      <%= f.text_field :university_a, class: 'form-control' %>
+      
+      <%= f.label :supervisor, "University Supervisor" %>
+      <%= f.text_field :supervisor, class: 'form-control' %>
+      
+      <%= f.label :sup_phone, "Phone" %>
+      <%= f.text_field :sup_phone, class: 'form-control' %>
+      
+      <%= f.label :sup_email, "Email" %>
+      <%= f.text_field :sup_email, class: 'form-control' %>
+   		
+   		<%= f.label :graduation_date %>
+      <%= f.text_field :graduation_date, class: 'form-control' %>
+      
+      <%= f.label :commit_two_semester do %>
+      	<%= f.check_box :commit_two_semester, class: "checkbox-auto" %>
+      	<span>Are you prepared to commit two semesters to Scotty’s House clients?</span>
+      <% end %>
+      </div>
+      
+      <%= f.label :LPC_intern do %>
+      	<%= f.check_box :LPC_intern, class: "checkbox-auto" %>
+      	<span>LPC Intern</span>
+      <% end %>
+      <br>
+      <div style="margin-left:18px;" id="LPC_intern" class="hide">
+      <%= f.label :univeristy_b, "University" %>
+      <%= f.text_field :univeristy_b , class: 'form-control' %>
+      
+      <%= f.label :LPC_supervisor, "LPC Supervisor" %>
+      <%= f.text_field :LPC_supervisor, class: 'form-control' %>
+      
+      <%= f.label :LPC_supervisor_phone, "Phone" %>
+      <%= f.text_field :LPC_supervisor_phone, class: 'form-control' %>
+      
+      <%= f.label :LPC_supervisor_email, "Email" %>
+      <%= f.text_field :LPC_supervisor_email, class: 'form-control' %>
+      
+      <%= f.label :commit_one_year do %>
+      	<%= f.check_box :commit_one_year, class: "checkbox-auto" %>
+      	<span>Are you prepared to commit one year to Scotty’s House clients?</span>
+      <% end %>
+      </div>
+      
+      <%= f.label :course_requirement, "Please describe your course or licensure requirements for your practicum/internship below:" %>
+      <%= f.text_area :course_requirement, class: 'form-control', rows: "5" %>
+      
+      <%= f.label :experience_with_children, "Please describe your experience with children:" %>
+      <%= f.text_area :experience_with_children, class: 'form-control', rows: "5" %>
+      
+      <%= hidden_field_tag :step, 1 %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

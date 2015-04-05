@@ -1,0 +1,21 @@
+<li>
+	
+	 <% time=internship.created_at.strftime("%d %b %Y %H:%M")+":" %>
+	 <% application='' %>
+	 <% if internship.counseling_student %>
+		<% application += " Counseling Student," %>
+	 <% end %>
+	 <% if internship.LPC_intern %>
+		<% application += " LPC Intern," %>
+	 <% end %>
+	 <% application=application[0...-1] %>
+	 <span><%= time %></span>
+	 <span><%= application %></span>
+	 <div></div>
+	 <%= link_to "View", applicant_internship_path(@applicant, internship) %>
+	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant)%>
+	 	 | <%= link_to "Edit", edit_applicant_internship_path(@applicant, internship) %> 
+	 	 | <%= link_to "Delete", applicant_internship_path(@applicant, internship), method: :delete, data: {confirm: "Are you sure?"} %>
+	 <% end %>
+	
+</li>

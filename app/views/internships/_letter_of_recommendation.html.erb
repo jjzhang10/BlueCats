@@ -1,0 +1,46 @@
+<h1>Internship/Practicum Application</h1>
+<h2>Letter of Recommendation</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@internship) do |f| %>
+			<%= render 'shared/error_messages' %>   
+            
+      <p>Please include a letter/email of recommendation from a university professor other than your university supervisor as well as the personal references below.	</p>
+      
+      <p>University Professor:</p>      
+      
+      <%= f.label :reference_name_prof, "Name" %>
+      <%= f.text_field :reference_name_prof, class: 'form-control' %>
+      
+      <%= f.label :reference_phone_prof, "Phone" %>
+      <%= f.text_field :reference_phone_prof, class: 'form-control' %>
+      
+      <%= f.label :relationship_prof, "Relationship" %>
+      <%= f.text_field :relationship_prof, class: 'form-control' %>
+      
+      <%= f.label :how_long_prof, "How long have you known this person?" %>
+      <%= f.text_field :how_long_prof, class: 'form-control' %>
+      
+      <p>Personal References:</p>      
+      
+      <%= f.label :reference_name_personal, "Name" %>
+      <%= f.text_field :reference_name_personal, class: 'form-control' %>
+      
+      <%= f.label :reference_phone_personal, "Phone" %>
+      <%= f.text_field :reference_phone_personal, class: 'form-control' %>
+      
+      <%= f.label :relationship_personal, "Relationship" %>
+      <%= f.text_field :relationship_personal, class: 'form-control' %>
+      
+      <%= f.label :how_long_personal, "How long have you known this person?" %>
+      <%= f.text_field :how_long_personal, class: 'form-control' %>
+
+
+      
+      <%= hidden_field_tag :step, 3 %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -4,7 +4,7 @@
 <h1>Volunteer Application</h1>
 
 <p>Date of Application: <span><%= @volunteer.created_at.strftime("%d %b. %Y") %></span></p>
-<p> Name; <span><%= @volunteer.name %></span></p>
+<p> Name: <span><%= @volunteer.name %></span></p>
 <p> Date of Birth: <span><%= @volunteer.date_of_birth %></span></p>
 <p> Email address: <span><%= @volunteer.email %></span></p>
 <p> Phone number: <span><%= @volunteer.phone %></span></p>
@@ -111,6 +111,8 @@
 <p class="bold"><%= @volunteer.emergency_address%></p>
 <p>Relationship</p>
 <p class="bold"><%= @volunteer.emergency_relation%></p>
+
+<div class="center"><%= link_to "Go back", applicant_path(@applicant), class: "btn btn-lg btn-primary" %></div>
 
 	</div>
 </div>

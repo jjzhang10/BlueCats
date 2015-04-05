@@ -1,0 +1,37 @@
+<h1>Internship/Practicum Application</h1>
+<h2>Emergency Notification</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+    <%= form_for(@internship) do |f| %>
+			<%= render 'shared/error_messages' %>   
+            
+      <p>In case of an emergency while at Scotty’s House Child Advocacy Center, please notify:</p>
+ 
+      <%= f.label :emergency_name, "Name" %>
+      <%= f.text_field :emergency_name, class: 'form-control' %>
+      
+      <%= f.label :emergency_relationship, "Relationship" %>
+      <%= f.text_field :emergency_relationship, class: 'form-control' %>
+      
+      <%= f.label :emergency_phone, "Phone" %>
+      <%= f.text_field :emergency_phone, class: 'form-control' %>
+      
+      <%= f.label :emergency_address, "Address" %>
+      <%= f.text_field :emergency_address, class: 'form-control' %>
+      
+      <%= f.label :emergency_city, "City" %>
+      <%= f.text_field :emergency_city, class: 'form-control' %>
+      
+      <%= f.label :emergency_state, "State" %>
+      <%= f.text_field :emergency_state, class: 'form-control' %>
+      
+      <%= f.label :emergency_zip, "Zip" %>
+      <%= f.text_field :emergency_zip, class: 'form-control' %>
+      
+      <%= hidden_field_tag :step, 4 %>
+
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

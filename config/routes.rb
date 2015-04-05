@@ -15,8 +15,10 @@ AppSys::Application.routes.draw do
 
 	resources :applicants do
 		resources :volunteers
+		resources :internships
 	end
 	resources :volunteers
+	resources :internships
 	resources :account_activations, only: [:edit]
 	resources :password_resets, only: [:new, :create, :edit, :update]
 

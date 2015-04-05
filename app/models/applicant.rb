@@ -1,6 +1,7 @@
 class Applicant < ActiveRecord::Base
 
 	has_many :volunteers
+	has_many :internships
   attr_accessible :email, :name, :password, :password_confirmation, :remember_digest, :admin, :activation_digest, :activated, :activated_at, :reset_digest, :reset_sent_at
   attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :downcase_email
