@@ -1,7 +1,9 @@
 class InternshipsController < ApplicationController
 
 	before_filter :logged_in_user
-
+	before_filter :correct_user, only: [:edit, :update, :destroy]
+	before_filter :correct_or_admin, only: [:show]
+	
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@internship=@applicant.internships.where(id: params[:id]).first		
@@ -18,7 +20,6 @@ class InternshipsController < ApplicationController
 		if @internship.save
 			render '_additional_information'
 		else
-			flash.now[:danger]="failed"
 			render 'new'
 		end		
 	end
@@ -46,12 +47,22 @@ class InternshipsController < ApplicationController
 						redirect_to @applicant
 					end
 				else
+					case step
+					when 1
+						render '_general_information'
+					when 2
+						render '_additional_information'
+					when 3
+						render '_letter_of_recommendation'
+					when 4
+						render '_emergency_notification'
+					end
 				end
 		
 	end
 	
 	def destroy
-		internship.find(params[:id]).destroy
+		Internship.find(params[:id]).destroy
 		flash[:success]="Successfully deleted."
 		redirect_to current_user
 	end
@@ -64,7 +75,21 @@ class InternshipsController < ApplicationController
 		end
 	end
 
-
+	def correct_user
+		@internship=Internship.where(id: params[:id]).first
+		unless current_user?(@internship.applicant)
+			flash[:danger]="Authorization limited."
+			redirect_to(root_url)			
+		end
+	end
+	
+	def correct_or_admin
+		@internship=Internship.where(id: params[:id]).first
+		unless ( current_user?(@internship.applicant) || current_user.is_admin? )
+			flash[:danger]="Authorization limited."
+			redirect_to(root_url)			
+		end
+	end
 
 
 

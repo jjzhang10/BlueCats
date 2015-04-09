@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
 	before_filter :logged_in_user
 
 	def show
-		@applicant=current_user
+		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first		
 	end
 	
@@ -18,7 +18,6 @@ class VolunteersController < ApplicationController
 		if @volunteer.save
 			render '_general_information'
 		else
-			flash.now[:danger]="failed"
 			render 'new'
 		end		
 	end
@@ -48,6 +47,18 @@ class VolunteersController < ApplicationController
 						redirect_to @applicant
 					end
 				else
+					case step
+					when 1
+						render '_volunteer_application'
+					when 2
+						render '_general_information'
+					when 3
+						render '_experience'
+					when 4
+						render '_skills_special_ability'
+					when 5
+						render '_emergency_notification'
+					end
 				end
 		
 	end
