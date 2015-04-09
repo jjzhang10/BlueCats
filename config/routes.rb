@@ -9,7 +9,9 @@ AppSys::Application.routes.draw do
 	get 'news' => 'page#news'
 	get 'signup' => 'applicants#new'
 	get 'login' => 'sessions#new'
-	get 'requirements' => 'page#requirements'
+	get 'requirementsc' => 'page#requirementsc'
+  get 'requirementsp' => 'page#requirementsp'
+  get 'requirementsv' => 'page#requirementsv'
 	post 'login' => 'sessions#create'
 	delete 'logout' => 'sessions#destroy'
 

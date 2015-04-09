@@ -17,7 +17,8 @@ class PageController < ApplicationController
 
 	def news
 	end
-	
+	def requirements
+	end
 	
 	def requirementsc
 	end
