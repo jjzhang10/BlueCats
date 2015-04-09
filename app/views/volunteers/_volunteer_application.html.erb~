@@ -61,6 +61,8 @@
       <%= f.text_field :days_available, class: 'form-control' %>
       
       <%= hidden_field_tag :step, 1 %>
+      
+      <%= hidden_field_tag :volunteer_id, @volunteer.id %>
 
       <%= f.submit "Next", class: "btn btn-primary" %>
     <% end %>
