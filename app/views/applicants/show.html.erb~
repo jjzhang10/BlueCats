@@ -16,16 +16,9 @@
 		</h1>
 	<% else %>
 		<div class="jumbotron">
-		<h1 style="font-size: 2.5em;">My applications(Volunteer)</h1>
-		<% if @applicant.volunteers.first.nil? %>
-			<p id="none" class="center">None</p>
-		<% end %>
-		
-		<ul class="volunteers"> 
-			<%= render @volunteers %>    
-		</ul>
-		
-		<h1 style="font-size: 2.5em;">My applications(Internship)</h1>
+
+		<h1 style="font-size: 3.5em;">My applications</h1>
+		<h1 style="font-size: 2.5em;">Counseling Intern</h1>
 		<% if @applicant.internships.first.nil? %>
 			<p id="none" class="center">None</p>
 		<% end %>
@@ -35,7 +28,21 @@
 		</ul>
 		
 		<% unless current_user.admin? %>
-		<div class="center"><%= link_to "Start new application", new_applicant_volunteer_path(@applicant), class: "btn btn-lg btn-primary", id: "add-top" %></div>
+		<div class="center"><%= link_to "New Counseling Intern Application", new_applicant_internship_path(@applicant), class: "btn btn-lg btn-primary", id: "add-top" %></div>
+		<% end %>
+
+		<h1 style="font-size: 2.5em;">Volunteer/Program Intern</h1>
+		<% if @applicant.volunteers.first.nil? %>
+			<p id="none" class="center">None</p>
+		<% end %>
+		
+		<ul class="volunteers"> 
+			<%= render @volunteers %>    
+		</ul>
+		
+		<% unless current_user.admin? %>
+		<div class="center"><%= link_to "New Volunteer Application", new_applicant_volunteer_path(@applicant), class: "btn btn-lg btn-info", id: "add-top" %></div>
+		<div class="center"><%= link_to "New Program Intern Application", new_applicant_internship_path(@applicant), class: "btn btn-lg btn-info", id: "add-top" %></div>
 		<% end %>
 		</div>
 	<% end %>
