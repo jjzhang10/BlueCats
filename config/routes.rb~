@@ -9,14 +9,18 @@ AppSys::Application.routes.draw do
 	get 'news' => 'page#news'
 	get 'signup' => 'applicants#new'
 	get 'login' => 'sessions#new'
-	get 'requirements' => 'page#requirements'
+	get 'requirementsc' => 'page#requirementsc'
+  get 'requirementsp' => 'page#requirementsp'
+  get 'requirementsv' => 'page#requirementsv'
 	post 'login' => 'sessions#create'
 	delete 'logout' => 'sessions#destroy'
 
 	resources :applicants do
 		resources :volunteers
+		resources :internships
 	end
 	resources :volunteers
+	resources :internships
 	resources :account_activations, only: [:edit]
 	resources :password_resets, only: [:new, :create, :edit, :update]
 

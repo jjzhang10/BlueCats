@@ -25,4 +25,7 @@ class PageController < ApplicationController
 	end
 	def requirementsp
 	end
+	
+	def resources
+	end
 end

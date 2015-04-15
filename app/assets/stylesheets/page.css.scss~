@@ -1,9 +1,14 @@
 .requirements{
 	h2{
 		font-size:2em;
-		margin-top:5px;
+		margin-top:50px;
 	}
 	li{
 		font-size:1.3em;
 	}
+}
+
+.right{
+	text-align: right;
+	color:red;
 }

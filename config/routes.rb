@@ -12,6 +12,7 @@ AppSys::Application.routes.draw do
 	get 'requirementsc' => 'page#requirementsc'
   get 'requirementsp' => 'page#requirementsp'
   get 'requirementsv' => 'page#requirementsv'
+  get 'resources' => 'page#resources'
 	post 'login' => 'sessions#create'
 	delete 'logout' => 'sessions#destroy'
 
