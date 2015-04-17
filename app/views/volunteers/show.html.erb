@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
 
-<h1>Volunteer Application</h1>
+<h1>Application Summary</h1>
 
 <p>Date of Application: <span><%= @volunteer.created_at.strftime("%d %b. %Y") %></span></p>
 <p> Name: <span><%= @volunteer.name %></span></p>
@@ -20,7 +20,7 @@
 	<p class="bold">Ambassador</p>
 <% end %>
 <% if @volunteer.pragram_internship %>
-	<p class="bold">Program/Counseling Internship</p>
+	<p class="bold">Program Internship</p>
 <% end %>
 <% if @volunteer.prevention_volunteer %>
 	<p class="bold">Prevention Volunteer</p>

@@ -12,11 +12,13 @@ class VolunteersController < ApplicationController
 	def new
 		@applicant=current_user
 		@volunteer=@applicant.volunteers.new
+		@type=params[:type]
 	end
 	
 	def create
 		@applicant=current_user
 		@volunteer=@applicant.volunteers.new(params[:volunteer])
+		@type=params[:type]
 		if @volunteer.save
 			render '_general_information'
 		else
@@ -27,7 +29,7 @@ class VolunteersController < ApplicationController
 	def edit
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first
-		render '_volunteer_application'
+		render 'new'
 	end
 	
 	def update
@@ -51,7 +53,7 @@ class VolunteersController < ApplicationController
 				else
 					case step
 					when 1
-						render '_volunteer_application'
+						render 'new'
 					when 2
 						render '_general_information'
 					when 3

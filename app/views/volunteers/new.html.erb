@@ -1,4 +1,13 @@
-<h1>Volunteer Application</h1>
+<% if @type=="volunteer"%>
+	<% show="shown"%>
+	<% type="Volunteer "%>
+<% else %>
+	<% show="not-shown"%>
+	<% type="Program Intern" %>
+<% end %>
+
+<h1><%= type %> Application
+</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
@@ -20,6 +29,8 @@
       <%= f.label :mailing_address, "Mailing Address" %>
       <%= f.text_field :mailing_address, class: 'form-control' %>
 
+
+      <div id="<%= show %>">
       <p>Scotty’s House Child Advocacy Center has several opportunities for Volunteers. All types of volunteers are needed to make services available to families in our community, and we value any skills you may have to help us improve the community in which we live. Listed below are the current Volunteer Opportunities available at Scotty’s House. Please check the areas in which you are most interested:</p>
       
    
@@ -37,12 +48,7 @@
       <%= f.label :ambassador, class:"col-md-6" do %>
       	<%= f.check_box :ambassador, class: "checkbox-auto" %>
       	<span>Ambassador</span>
-      <% end %>   
-      
-      <%= f.label :pragram_internship, class:"col-md-6" do %>
-      	<%= f.check_box :pragram_internship, class: "checkbox-auto" %>
-      	<span>Program/Counseling Internship</span>
-      <% end %>   
+      <% end %>    
       
       <%= f.label :prevention_volunteer, class:"col-md-6" do %>
       	<%= f.check_box :prevention_volunteer, class: "checkbox-auto" %>
@@ -57,10 +63,15 @@
       <%= f.label :additional_volunteer_opportunity_spec, "*If you have selected Additional Volunteer Opportunities, please specify:" %>
       <%= f.text_field :additional_volunteer_opportunity_spec, class: 'form-control' %>
       
+      <%= f.check_box :pragram_internship, {checked: true} if @type=="program"%>
+      </div>
+      
       <%= f.label :days_available, "Days/Times you will be available to Volunteer:" %>
       <%= f.text_field :days_available, class: 'form-control' %>
       
       <%= hidden_field_tag :step, 1 %>
+      <%= hidden_field_tag :type, @type %>
+      <%= hidden_field_tag :volunteer_id, @volunteer.id %>
 
       <%= f.submit "Next", class: "btn btn-primary" %>
     <% end %>

@@ -1,6 +1,8 @@
 class VolunteersController < ApplicationController
 
 	before_filter :logged_in_user
+	before_filter :correct_user, only: [:edit, :update, :destroy]
+	before_filter :correct_or_admin, only: [:show]
 
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
@@ -10,11 +12,13 @@ class VolunteersController < ApplicationController
 	def new
 		@applicant=current_user
 		@volunteer=@applicant.volunteers.new
+		@type=params[:type]
 	end
 	
 	def create
 		@applicant=current_user
 		@volunteer=@applicant.volunteers.new(params[:volunteer])
+		@type=params[:type]
 		if @volunteer.save
 			render '_general_information'
 		else
@@ -25,7 +29,7 @@ class VolunteersController < ApplicationController
 	def edit
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first
-		render '_volunteer_application'
+		render 'new'
 	end
 	
 	def update
@@ -74,6 +78,22 @@ class VolunteersController < ApplicationController
 			store_location
 			flash[:danger]="You need to log in."
 			redirect_to login_url
+		end
+	end
+	
+	def correct_user
+		@volunteer=Volunteer.where(id: params[:id]).first
+		unless current_user?(@volunteer.applicant)
+			flash[:danger]="Authorization limited."
+			redirect_to(root_url)			
+		end
+	end
+	
+	def correct_or_admin
+		@volunteer=Volunteer.where(id: params[:id]).first
+		unless ( current_user?(@volunteer.applicant) || current_user.is_admin? )
+			flash[:danger]="Authorization limited."
+			redirect_to(root_url)			
 		end
 	end
 	

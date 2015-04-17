@@ -1,14 +1,13 @@
 <li>
 	
-	 <% time=internship.created_at.strftime("%d %b %Y %H:%M")+":" %>
-	 <% application='' %>
+	 <% time=internship.created_at.strftime("%d %b %Y")+":" %>
+	 <% application='Counseling Internship' %>
 	 <% if internship.counseling_student %>
-		<% application += " Counseling Student," %>
+		<% application += " (Counseling Student)" %>
 	 <% end %>
 	 <% if internship.LPC_intern %>
-		<% application += " LPC Intern," %>
+		<% application += " (LPC Intern)" %>
 	 <% end %>
-	 <% application=application[0...-1] %>
 	 <span><%= time %></span>
 	 <span><%= application %></span>
 	 <div></div>
