@@ -1,16 +1,16 @@
 <h1>Resources for download</h1>
 
 <div class="col-md-6 col-md-offset-3">
-	<!--<p>Volunteer Application Form 
+	<p>Volunteer Application Form 
 		<%= link_to "Download", "/download/_Volunteer_Application_2013.pdf", class: 'btn pull-right' %>
 	</p>
 	<p>SHACA Intern Application Form
 		<%= link_to "Download", "/download/SHCAC_Intern_Application_Forms.docx", class: 'btn pull-right' %>
-	</p>-->
-	<p>Intern Agreement (used for counselling intern application)
+	</p>
+	<p>Intern Agreement
 		<%= link_to "Download", "/download/intern_agreement.doc", class: 'btn pull-right' %>
 	</p>
-	<!--<p>Counseling Supervisor Contract
+	<p>Counseling Supervisor Contract
 		<%= link_to "Download", "/download/COUNSELING_SUPERVISION_CONTRACT.docx", class: 'btn pull-right' %>
 	</p>
 	<p>Counseling Practicum and Internship Information
@@ -18,14 +18,11 @@
 	</p>
 	<p>Background Check
 		<%= link_to "Download", "/download/Background_Check.pdf", class: 'btn pull-right' %>
-	</p>-->
-	<p>Pledge of Confidentiality (used for Volunteer/Program intern application)
+	</p>
+	<p>Volunteer Pledge of Confidentiality
 		<%= link_to "Download", "/download/_Volunteer_Pledge_of_Confidentiality_2010.pdf", class: 'btn pull-right' %>
 	</p>
-	<p>Non-disclosure Form (used for Volunteer/Program intern application)
+	<p>Volunteer Non-disclosure Form
 		<%= link_to "Download", "/download/_Volunteer_Non_Disclosure_Form_2010.pdf", class: 'btn pull-right' %>
-	</p>
-	<p>Reference Form (used for Volunteer/Program intern application)
-		<%= link_to "Download", "/download/Reference Form.pdf", class: 'btn pull-right' %>
 	</p>
 </div>

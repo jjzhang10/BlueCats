@@ -6,7 +6,7 @@
         
           <ul class="nav navbar-nav navbar-right" id="nav-bar">
             <li><%= link_to "Home",   home_path %></li>
-            <li><%= link_to "Help",   help_path %></li>
+            <li><%= link_to "Contact", contact_path %></li>
 						<li><%= link_to "Resources",   resources_path %></li>
 					
 
@@ -25,7 +25,8 @@
 				     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Apply Now <span class="caret"></span></a>
 				     <ul class="dropdown-menu" >				    											 								  
 								<li><%= link_to "Counseling Intern", new_applicant_internship_path(current_user) %></li>
-						    <li><%= link_to "Volunteer/Program Intern", new_applicant_volunteer_path(current_user) %></li>						    
+						    <li><%= link_to "Volunteer", new_applicant_volunteer_path(current_user) %></li>
+							 <li><%= link_to "Program Intern", new_applicant_volunteer_path(current_user) %></li>
 								
 					   </ul>
 				   	</li>
@@ -35,7 +36,8 @@
 				     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Apply Now <span class="caret"></span></a>
 				     <ul class="dropdown-menu" >				    											 								  				 
 								 <li><%= link_to "Counseling Intern", login_path %></li>  
-								 <li><%= link_to "Volunteer/Program Intern", login_path %></li>							
+								 <li><%= link_to "Volunteer", login_path %></li>	
+								 <li><%= link_to "Program Intern", login_path %></li>	
 					   </ul>
 				   	</li>
 				   <% end %>

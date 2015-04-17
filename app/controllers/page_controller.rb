@@ -7,16 +7,16 @@ class PageController < ApplicationController
 		@title="contact"
   end
 
-  def help
+ #  def help
 		
-  end
+ #  end
 
-  def about
+ #  def about
 		
-  end
+ #  end
 
-	def news
-	end
+	# def news
+	# end
 	
 	
 	def requirementsc
