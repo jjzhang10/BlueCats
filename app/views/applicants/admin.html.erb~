@@ -1,0 +1,3 @@
+<h1>I'm an administrator, I can 
+			<%= link_to "view all applicants", applicants_path %>.
+		</h1>

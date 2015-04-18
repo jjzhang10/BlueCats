@@ -1,10 +1,14 @@
 <header class="navbar navbar-static-top">
       <div class="container">
 
-        <%= link_to image_tag("logo.png", alt: "SH logo"),
-            'http://scottyshouse.org/', id: "logo"%>
+        <%= link_to image_tag("0.png", alt: "SH logo"),
+            'http://scottyshouse.org/', id: "logo", style: "padding-right:10px; padding-top:15px;" %>
+        <img id="1" style="padding-top:27px;" src="/assets/1.png">
+        <img id="2" style="padding-top:27px;" src="/assets/2.png">
+        <img id="3" style="padding-top:27px;" src="/assets/3.png">
         
-          <ul class="nav navbar-nav navbar-right" id="nav-bar">
+        
+          <ul class="nav navbar-nav navbar-right" id="nav-bar" style="margin-top:20px;">
             <li><%= link_to "Home",   home_path %></li>
             <li><%= link_to "Contact", contact_path %></li>
 						<li><%= link_to "Resources",   resources_path %></li>
@@ -25,8 +29,8 @@
 				     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Apply Now <span class="caret"></span></a>
 				     <ul class="dropdown-menu" >				    											 								  
 								<li><%= link_to "Counseling Intern", new_applicant_internship_path(current_user) %></li>
-						    <li><%= link_to "Volunteer", new_applicant_volunteer_path(current_user) %></li>
-							 <li><%= link_to "Program Intern", new_applicant_volunteer_path(current_user) %></li>
+						    <li><%= link_to "Volunteer", new_applicant_volunteer_path(current_user, type: "volunteer") %></li>
+							 <li><%= link_to "Program Intern", new_applicant_volunteer_path(current_user, type: "program") %></li>
 								
 					   </ul>
 				   	</li>
@@ -57,8 +61,30 @@
 							<li><%= link_to "Log in", login_path%></li>
 						<% end %>
           </ul>
-        
+       
       </div>
 </header>
+
+<script>
+	window.onload=function(){
+		var imgs=document.getElementsByTagName("img");
+		for (var i=0;i<imgs.length;i++){
+			imgs[i].onmouseover=function(e){
+				var img=e.target;
+				if (img.id==0){
+					return;
+				}
+				if (img.id<3){
+					img.id++;
+				}else{
+					img.id=1;
+				}		
+				var pic_src="/assets/"+img.id+".png";
+				img.src=pic_src;
+			};
+		}
+	}
+</script>
+
 
 

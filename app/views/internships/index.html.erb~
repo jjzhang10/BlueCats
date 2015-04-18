@@ -1,0 +1,24 @@
+<h1>Internship Applications List</h1>
+
+<%= will_paginate %>
+
+<ul class="internships col-sm-offset-3 col-sm-6"> 
+	<% @internships.each do |internship| %> 
+		<li class="list-group-item">
+			 <% time=internship.created_at.strftime("%d %b %Y")+":" %>
+			 <% application='Counseling Internship' %>
+			 <% if internship.counseling_student %>
+				<% application += " (Counseling Student)" %>
+			 <% end %>
+			 <% if internship.LPC_intern %>
+				<% application += " (LPC Intern)" %>
+			 <% end %>
+			 <div style="font-size: 1.8em; ">Applicant: <span class="text-primary"><%= internship.name %></span></div>
+			 <div style="font-size: 1.2em;" class="text-primary"><%= time %></div>
+			 <div style="font-size: 1.2em;" class="text-success"><%= application %></div>
+			 <%= link_to "View", applicant_internship_path(internship.applicant, internship), class: "btn bg-primary " %>
+		</li>
+	<% end %>
+</ul>
+
+<%= will_paginate %>

@@ -4,6 +4,8 @@ class VolunteersController < ApplicationController
 	before_filter :correct_user, only: [:edit, :update, :destroy]
 	before_filter :correct_or_admin, only: [:show]
 
+	require 'will_paginate/array'
+	
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first		
@@ -71,6 +73,11 @@ class VolunteersController < ApplicationController
 		Volunteer.find(params[:id]).destroy
 		flash[:success]="Successfully deleted."
 		redirect_to current_user
+	end
+	
+	def index
+		@type=params[:type]
+		@volunteers=Volunteer.all.paginate(page: params[:page], per_page: 15)
 	end
 	
 	def logged_in_user

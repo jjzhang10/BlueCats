@@ -11,9 +11,13 @@
 
 <div class="col-md-7">
 	<% if @applicant.admin? %>
-		<h1>I'm an administrator, I can 
-			<%= link_to "view all applicants", applicants_path %>.
-		</h1>
+		<div class="center">
+			<p style="font-size:2.6em; margin-top:20px;">Administrator Interface</p>
+			<p style="font-size:2em;"><%= link_to "View all applicants", applicants_path %></p>
+			<p style="font-size:2em;"><%= link_to "View all counselling intern applications", internships_path %></p>
+			<p style="font-size:2em;"><%= link_to "View all volunteer applications", volunteers_path(type: "volunteer") %></p>
+			<p style="font-size:2em;"><%= link_to "View all program intern applications", volunteers_path(type: "program") %></p>
+		</div>
 	<% else %>
 		<div class="jumbotron">
 

@@ -1,0 +1,53 @@
+<h1><% if @type=="volunteer"%>
+		Volunteer 
+	<% else %>
+		Program Intern 
+	<% end %>
+	Applications List
+</h1>
+
+<%= will_paginate, class: "volunteers col-sm-offset-3 col-sm-6" %>
+
+<ul class="volunteers col-sm-offset-3 col-sm-6"> 
+	<% @volunteers.each do |volunteer| %> 
+		<% if @type=="volunteer" && volunteer.pragram_internship %>
+			<% next %>
+		<% elsif @type=='program' && !volunteer.pragram_internship %>
+			<% next %>
+		<% end %>
+		<li class="list-group-item">
+			 <% time=volunteer.created_at.strftime("%d %b %Y")+":" %>
+			 <% application='' %>
+			 
+				<% if @type=="volunteer"%>
+				 <% if volunteer.family_care %>
+					<% application += " Family Care," %>
+				 <% end %>
+				 <% if volunteer.medical_volunteer %>
+					<% application += " Medical Volunteer," %>
+				 <% end %>
+				 <% if volunteer.ambassador %>
+					<% application += " Ambassador," %>
+				 <% end %>
+				 <% if volunteer.prevention_volunteer %>
+					<% application += " Prevention Volunteer," %>
+				 <% end %>
+				 <% if volunteer.additional_volunteer_opportunity %>
+					<% application += " Additional Volunteer Opportunity," %>
+				 <% end %>	
+				 <% application=application[0...-1] %>
+			 	 <% application += " (Volunteer)" %> 
+			 	<% else %>
+				 <% if volunteer.pragram_internship %>
+					<% application += " Program Internship" %>
+				 <% end%>
+				<% end %>
+			 
+			 <div style="font-size: 1.8em; ">Applicant: <span class="text-primary"><%= volunteer.name %></span></div>
+			 <div style="font-size: 1.2em;" class="text-primary"><%= time %></div>
+			 <div style="font-size: 1.2em;" class="text-success"><%= application %></div>
+			 <%= link_to "View", applicant_volunteer_path(volunteer.applicant, volunteer), class: "btn bg-primary " %>
+		</li>
+	<% end %>
+</ul>
+

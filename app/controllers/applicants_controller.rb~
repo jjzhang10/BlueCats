@@ -13,7 +13,10 @@ class ApplicantsController < ApplicationController
 		@applicant=Applicant.find(params[:id])
 		@volunteers=@applicant.volunteers.all
 		@internships=@applicant.internships.all
-		@type=params[:type]
+		if current_user.is_admin?
+			@volunteers=Volunteer.all
+			@internships=Internship.all
+		end		
 		redirect_to root_url and return unless @applicant.activated?
 	end
 
