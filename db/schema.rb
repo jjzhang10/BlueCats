@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150404233308) do
+ActiveRecord::Schema.define(:version => 20150424012017) do
 
   create_table "applicants", :force => true do |t|
     t.string   "name"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20150404233308) do
     t.boolean  "prevention_volunteer"
     t.boolean  "additional_volunteer_opportunity"
     t.string   "additional_volunteer_opportunity_spec"
-    t.integer  "days_available"
+    t.string   "days_available"
     t.text     "how_learn_about"
     t.text     "what_to_gain"
     t.boolean  "class_credit"

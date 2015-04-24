@@ -66,7 +66,7 @@
       <%= f.check_box :pragram_internship, {checked: true} if @type=="program"%>
       </div>
       
-      <%= f.label :days_available, "Days/Times you will be available to Volunteer:" %>
+      <%= f.label :days_available, "Days/Times you will be available to Volunteer (MM/DD/YYYY-MM/DD/YYYY):" %>
       <%= f.text_field :days_available, class: 'form-control' %>
       
       <%= hidden_field_tag :step, 1 %>

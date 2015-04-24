@@ -1,0 +1,9 @@
+class ChangeDaysAvailableFormatInVolunteer < ActiveRecord::Migration
+  def up
+  	change_column :volunteer, :days_available, :string
+  end
+
+  def down
+  	change_column :volunteer, :days_available, :integer
+  end
+end
