@@ -28,7 +28,7 @@
    
       <%= f.label :counseling_student do %>
       	<%= f.check_box :counseling_student, class: "checkbox-auto" %>
-      	<span>Counseling/Psychology Student</span>
+      	<span>Counseling Student</span>
       <% end %>
       <br>
       <div style="margin-left:18px;" id="counseling_student" class="hide">
