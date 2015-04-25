@@ -31,7 +31,7 @@
       
       <%= hidden_field_tag :step, 4 %>
 
-      <%= f.submit "Finish", class: "btn btn-primary" %>
+      <%= f.submit "Next", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
