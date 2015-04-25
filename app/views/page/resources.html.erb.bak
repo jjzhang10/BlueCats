@@ -6,7 +6,16 @@
 	<p>Intern Agreement 
 		<%= link_to "Download", "/download/intern_agreement.doc", class: 'btn pull-right' %>
 	</p>
-	
+	<p>Pledge of Confidentiality
+		<%= link_to "Download", "/download/_Volunteer_Pledge_of_Confidentiality_2010.pdf", class: 'btn pull-right' %>
+	</p>
+	<p>Non-disclosure Form
+		<%= link_to "Download", "/download/_Volunteer_Non_Disclosure_Form_2010.pdf", class: 'btn pull-right' %>
+	</p>
+	<p>Background Check
+		<%= link_to "Download", "/download/Background_Check.pdf", class: 'btn pull-right' %>
+	</p>
+
 	<p style="font-size: 1.7em;" class="center">For Volunteer/Program intern application</p>
 	<p>Pledge of Confidentiality
 		<%= link_to "Download", "/download/_Volunteer_Pledge_of_Confidentiality_2010.pdf", class: 'btn pull-right' %>
@@ -18,7 +27,7 @@
 		<%= link_to "Download", "/download/Reference_Form.pdf", class: 'btn pull-right' %>
 	</p>
 	
-	<p style="font-size: 1.7em;" class="center">Miscellaneous</p>
+	<!--<p style="font-size: 1.7em;" class="center">Miscellaneous</p>
 	<p>Volunteer Application Form 
 		<%= link_to "Download", "/download/_Volunteer_Application_2013.pdf", class: 'btn pull-right' %>
 	</p>
@@ -33,5 +42,5 @@
 	</p>
 	<p>Background Check
 		<%= link_to "Download", "/download/Background_Check.pdf", class: 'btn pull-right' %>
-	</p>
+	</p>-->
 </div>
