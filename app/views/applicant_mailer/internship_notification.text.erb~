@@ -2,4 +2,4 @@
 
 <%= applicant_internship_url(@applicant,@internship) %>
 
-<% render 'internships/show' %>
+

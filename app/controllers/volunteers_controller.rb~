@@ -83,9 +83,7 @@ class VolunteersController < ApplicationController
 	def change_status
 		@applicant=current_user
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first
-		if !@volunteer.submited 
-			ApplicantMailer.volunteer_notification(@applicant,@volunteer).deliver
-		end
+		ApplicantMailer.volunteer_notification(@applicant,@volunteer).deliver
 		@volunteer.update_attributes(params[:status])
 		flash[:success]=["Application form submited!","To finish your application, please also complete:", "Pledge of Confidentiality.pdf", "Non-disclosure Form.pdf", "Reference Form.pdf", "which can be found in Resouces tab above and send them to info@scottyshouse.org"]
 		redirect_to current_user
