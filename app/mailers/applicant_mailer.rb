@@ -25,4 +25,16 @@ class ApplicantMailer < ActionMailer::Base
   	mail to: "shenmin@tamu.edu", subject: "New volunteer/program intern application"
   end
   
+  def internship_confirmation(applicant,internship)
+  	@applicant=applicant
+  	@internship=internship
+  	mail to: applicant.email, subject: "Counseling intern application confirmation"
+  end
+  
+  def volunteer_confirmation(applicant,volunteer)
+  	@applicant=applicant
+  	@volunteer=volunteer
+  	mail to: applicant.email, subject: "Volunteer/program intern application confirmation"
+  end
+  
 end

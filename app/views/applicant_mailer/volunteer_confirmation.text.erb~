@@ -1,0 +1,7 @@
+Dear <%= @volunteer.name %>,
+
+Thanks for your interest in Scotty's House!
+To continue with your application, please complete the Pledge of Confidentiality pdf, the Non-disclosure Form pdf and the Reference Form pdf which can be found in Resource Tab and send them to info@scottyshouse.org.
+
+<br>
+<%= applicant_volunteer_url(@applicant,@volunteer) %>

@@ -13,12 +13,14 @@ class ApplicantMailer < ActionMailer::Base
     mail to: applicant.email, subject: "Password Reset"
   end
   
-  def internship_notification(internship)
+  def internship_notification(applicant,internship)
+  	@applicant=applicant
   	@internship=internship
   	mail to: "shenminzhou@gmail.com", subject: "New counseling intern application"
   end
   
-  def volunteer_notification(volunteer)
+  def volunteer_notification(applicant,volunteer)
+  	@applicant=applicant
   	@volunteer=volunteer
   	mail to: "shenmin@tamu.edu", subject: "New volunteer/program intern application"
   end

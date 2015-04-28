@@ -1,0 +1,8 @@
+Dear <%= @internship.name %>,
+
+Thanks for your interest in Scotty's House!
+
+To continue with your application, please complete the Intern Agreement pdf, the Pledge of Confidentiality pdf, the Non-disclosure Form pdf and the Background Check pdf which can be found in Resouces tab and send them to info@scottyshouse.org.
+
+<br>
+<%= applicant_internship_url(@applicant,@internship) %>

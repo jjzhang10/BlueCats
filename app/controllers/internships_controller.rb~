@@ -76,9 +76,7 @@ class InternshipsController < ApplicationController
 	def change_status
 		@applicant=current_user
 		@internship=@applicant.internships.where(id: params[:id]).first
-		if !@internship.submited 
-			ApplicantMailer.internship_notification(@applicant,@internship).deliver
-		end
+		ApplicantMailer.internship_notification(@applicant,@internship).deliver
 		@internship.update_attributes(params[:status])
 		flash[:success]=["Application form submited!","To finish your application, please also complete:", "Intern Agreement.pdf", "Pledge of Confidentiality.pdf", "Non-disclosure Form.pdf", "Background Check.pdf", "which can be found in Resouces tab above and send them to info@scottyshouse.org"]
 		redirect_to current_user
