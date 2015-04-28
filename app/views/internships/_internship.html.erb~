@@ -1,14 +1,13 @@
-<li>
+<li class="list-group-item container">
 	
 	 <% time=internship.created_at.strftime("%d %b %Y")+":" %>
 	 <% application='Counseling Internship' %>
 	 <% if internship.counseling_student %>
-		<% application += " (Counseling Student)," %>
+		<% application += " (Counseling Student)" %>
 	 <% end %>
 	 <% if internship.LPC_intern %>
-		<% application += " (LPC Intern)," %>
+		<% application += " (LPC Intern)" %>
 	 <% end %>
-	 <% application=application[0...-1] %>
 	 <span><%= time %></span>
 	 <span><%= application %></span>
 	 <div></div>
@@ -16,6 +15,7 @@
 	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant)%>
 	 	 | <%= link_to "Edit", edit_applicant_internship_path(@applicant, internship) %> 
 	 	 | <%= link_to "Delete", applicant_internship_path(@applicant, internship), method: :delete, data: {confirm: "Are you sure?"} %>
+	 	 <%= link_to "Submit", change_status_applicant_internship_path(@applicant, internship, status: {submited: true}), method: :put, class: 'pull-right btn btn-warning' %>
 	 <% end %>
 	
 </li>

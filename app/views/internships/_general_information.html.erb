@@ -89,3 +89,26 @@
     <% end %>
   </div>
 </div>
+
+<script>
+	window.onload = function(){
+		c1=document.getElementById("internship_counseling_student");
+		c2=document.getElementById("internship_LPC_intern");
+		c1.onchange=function(){
+			s=document.getElementById("counseling_student")
+			if (c1.checked){
+				s.setAttribute("class", "");
+			} else {
+				s.setAttribute("class", "hide");
+			}
+		}
+		c2.onchange=function(){
+			s=document.getElementById("LPC_intern")
+			if (c2.checked){
+				s.setAttribute("class", "");
+			} else {
+				s.setAttribute("class", "hide");
+			}
+		}
+	}
+</script>

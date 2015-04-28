@@ -1,4 +1,4 @@
-<li>
+<li class="list-group-item container">
 	
 	 <% time=volunteer.created_at.strftime("%d %b %Y")+":" %>
 	 <% application='' %>
@@ -27,9 +27,10 @@
 	 <span><%= application %></span>
 	 <div></div>
 	 <%= link_to "View", applicant_volunteer_path(@applicant, volunteer) %>
-	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant)%>
+	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant) && !volunteer.submited?%>
 	 	 | <%= link_to "Edit", edit_applicant_volunteer_path(@applicant, volunteer) %> 
 	 	 | <%= link_to "Delete", applicant_volunteer_path(@applicant, volunteer), method: :delete, data: {confirm: "Are you sure?"} %>
+	 	 <%= link_to "Submit", change_status_applicant_volunteer_path(@applicant, volunteer, status: {submited: true}), method: :put, class: 'pull-right btn btn-warning' %>
 	 <% end %>
 	
 </li>

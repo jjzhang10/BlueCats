@@ -28,10 +28,10 @@
    
       <%= f.label :counseling_student do %>
       	<%= f.check_box :counseling_student, class: "checkbox-auto" %>
-      	<span>Counseling Student</span>
+      	<span>Counseling/Psychology Student</span>
       <% end %>
       <br>
-      <div style="margin-left:18px;" id="counseling_student">
+      <div style="margin-left:18px;" id="counseling_student" class="hide">
       <%= f.label :university_a, "University" %>
       <%= f.text_field :university_a, class: 'form-control' %>
       
@@ -58,7 +58,7 @@
       	<span>LPC Intern</span>
       <% end %>
       <br>
-      <div style="margin-left:18px;" id="LPC_intern">
+      <div style="margin-left:18px;" id="LPC_intern" class="hide">
       <%= f.label :univeristy_b, "University" %>
       <%= f.text_field :univeristy_b , class: 'form-control' %>
       

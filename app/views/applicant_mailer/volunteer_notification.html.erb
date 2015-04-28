@@ -1,0 +1,126 @@
+<%= @volunteer.name %> has submited an application.
+<br>
+
+<%= link_to "View application", applicant_volunteer_path(@applicant,@volunteer) %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+
+<h1>Application Summary</h1>
+
+<p>Date of Application: <span><%= @volunteer.created_at.strftime("%d %b. %Y") %></span></p>
+<p> Name: <span><%= @volunteer.name %></span></p>
+<p> Date of Birth: <span><%= @volunteer.date_of_birth %></span></p>
+<p> Email address: <span><%= @volunteer.email %></span></p>
+<p> Phone number: <span><%= @volunteer.phone %></span></p>
+<p> Mailing address: <span><%= @volunteer.mailing_address %></span></p>
+<p>Scotty’s House Child Advocacy Center has several opportunities for Volunteers. All types of volunteers are needed to make services available to families in our community, and we value any skills you may have to help us improve the community in which we live. Listed below are the current Volunteer Opportunities available at Scotty’s House. Please check the areas in which you are most interested:</p>
+<% if @volunteer.family_care %>
+	<p class="bold">Family Care</p>
+<% end %>
+<% if @volunteer.medical_volunteer %>
+	<p class="bold">Medical Volunteer</p>
+<% end %>
+<% if @volunteer.ambassador %>
+	<p class="bold">Ambassador</p>
+<% end %>
+<% if @volunteer.pragram_internship %>
+	<p class="bold">Program Internship</p>
+<% end %>
+<% if @volunteer.prevention_volunteer %>
+	<p class="bold">Prevention Volunteer</p>
+<% end %>
+<% if @volunteer.additional_volunteer_opportunity %>
+	<p class="bold">Additional Volunteer Opportunities*</p>
+	<p>*If you have selected Additional Volunteer Opportunities, please specify:</p>
+	<p class="bold"><%= @volunteer.additional_volunteer_opportunity_spec %></p>
+<% end %>
+<p> Days/Times you will be available to Volunteer: <span><%= @volunteer.days_available %></span></p>
+
+
+
+
+<h1>General Information</h1>
+<p> How did you learn about Scotty’s House and our Volunteer Program? </p>
+<p class="bold"><%= @volunteer.how_learn_about %></p>
+<p> What would you like to gain from your Volunteer experience? </p>
+<p class="bold"><%= @volunteer.what_to_gain %></p>
+<p>Are you volunteering for:</p>
+<% if @volunteer.class_credit %>
+	<p>Class Credit (Please provide the name of your Instructor.)</p>
+	<p class="bold"><%= @volunteer.instructor_name%></p>
+<% end %>
+<% if @volunteer.organization_credit %>
+	<p>Organization Credit (Please provide the name of your Organization.)</p>
+	<p class="bold"><%= @volunteer.organiztion_name%></p>
+<% end %>
+<% if @volunteer.other %>
+	<p >Other (Please explain.)</p>
+	<p class="bold"><%= @volunteer.other_spec%></p>
+<% end %>
+<% if @volunteer.employed %>
+	<p>Name of employer</p>
+	<p class="bold"><%= @volunteer.employer_name %></p>
+<% end %>
+
+
+
+<h1>Experience</h1>
+<p>Please list any previous Volunteer experience, particularly in working with children and families:</p>
+<p class="bold"><%= @volunteer.experience%></p>
+<p>Do you have any experience with:</p>
+<% if @volunteer.child_abuse %>
+	<p class="bold">Child abuse</p>
+	<p><%= @volunteer.child_abuse_spec%></p>
+<% end %>
+<% if @volunteer.foster_care %>
+	<p class="bold">Foster care</p>
+	<p><%= @volunteer.foster_care_spec%></p>
+<% end %>
+<% if @volunteer.criminal %>
+	<p class="bold">Criminal, Juvenile or Family Court System</p>
+	<p><%= @volunteer.crinimal_spec%></p>
+<% end %>
+<% if @volunteer.other_service %>
+	<p class="bold">Other Child Service Agencies</p>
+	<p><%= @volunteer.other_service_spec%></p>
+<% end %>
+
+
+<h1>Skills and Special Abilities</h1>
+<% if @volunteer.speak %>
+	<p>Do you speak any language other than English?</p>
+	<p class="bold"><%= @volunteer.speak_what%></p>
+<% end %>
+<% if @volunteer.read %>
+	<p>Do you read/write in any language other than English?</p>
+	<p class="bold"><%= @volunteer.read_what%></p>
+<% end %>
+<% if @volunteer.blind %>
+	<p>Do you have any experience with blind or hearing impaired persons?</p>
+	<p class="bold"><%= @volunteer.blind_experience%></p>
+<% end %>
+<% if @volunteer.handicap %>
+	<p>Do you have any experience with handicapped persons?</p>
+	<p class="bold"><%= @volunteer.handicap_experience%></p>
+<% end %>
+
+
+
+<h1>Emergency Notification</h1>
+<p>Name</p>
+<p class="bold"><%= @volunteer.emergency_name%></p>
+<p>Phone number</p>
+<p class="bold"><%= @volunteer.emergency_phone%></p>
+<p>Address</p>
+<p class="bold"><%= @volunteer.emergency_address%></p>
+<p>Relationship</p>
+<p class="bold"><%= @volunteer.emergency_relation%></p>
+
+
+
+	</div>
+</div>
+
+
+

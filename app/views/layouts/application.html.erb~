@@ -11,7 +11,16 @@
     <%= render 'layouts/header'%>
 		<div class="container">
 			<% flash.each do |message_type, message| %>
-		    <div class="alert alert-<%= message_type %>"><%= message %></div>
+		    <div class="alert alert-<%= message_type %>">
+		    	<% if message.is_a(String)%>
+				  	<%= message %>
+				  <% else %>
+				  	<% message.each do |msg| %>
+				  		<%= msg %>
+				  		<br>
+				  	<% end%>
+				  <% end %>
+		    </div>
 		  <% end %>
 		</div>
     <div class="container">
@@ -20,6 +29,6 @@
 		<div class="container">
 		<%= render 'layouts/footer'%>
 		</div>
-		<%= debug(params)  %>
+		<%= debug(params) if Rails.env.development? %>
   </body>
 </html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150424012017) do
+ActiveRecord::Schema.define(:version => 20150428145302) do
 
   create_table "applicants", :force => true do |t|
     t.string   "name"
@@ -74,8 +74,10 @@ ActiveRecord::Schema.define(:version => 20150424012017) do
     t.string   "emergency_city"
     t.string   "emergency_state"
     t.string   "emergency_zip"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.boolean  "submited",                 :default => false
+    t.boolean  "viewed",                   :default => false
   end
 
   add_index "internships", ["applicant_id"], :name => "index_internships_on_applicant_id"
@@ -126,8 +128,10 @@ ActiveRecord::Schema.define(:version => 20150424012017) do
     t.string   "emergency_phone"
     t.string   "emergency_address"
     t.string   "emergency_relation"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.boolean  "submited",                              :default => false
+    t.boolean  "viewed",                                :default => false
   end
 
   add_index "volunteers", ["applicant_id"], :name => "index_volunteers_on_applicant_id"

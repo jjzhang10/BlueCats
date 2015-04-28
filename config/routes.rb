@@ -17,8 +17,16 @@ AppSys::Application.routes.draw do
 	delete 'logout' => 'sessions#destroy'
 
 	resources :applicants do
-		resources :volunteers
-		resources :internships
+		resources :volunteers do
+			member do
+				put 'change_status'
+			end
+		end
+		resources :internships do
+			member do
+				put 'change_status'
+			end
+		end
 	end
 	resources :volunteers
 	resources :internships

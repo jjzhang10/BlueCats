@@ -1,0 +1,83 @@
+<%= @internship.name %> has submited an application.
+<br>
+
+<%= link_to "View application", applicant_internship_path(@applicant,@internship) %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 ">
+
+		<h1>Internship/Practicum Application</h1>
+
+		<h2>General Information</h2>
+		<p>Date of Application: <span><%= @internship.created_at.strftime("%d %b. %Y") %></span></p>
+		<p>Name: <span><%= @internship.name %></span></p>
+		<p>Address: <span><%= @internship.address %></span></p>
+		<p>City: <span><%= @internship.city %></span></p>
+		<p>State: <span><%= @internship.state %></span></p>
+		<p>Zip: <span><%= @internship.zip %></span></p>
+		<p>Phone: <span><%= @internship.phone %></span></p>
+		<p>I am a (please check one):</p>
+		<% if @internship.counseling_student %>
+			<div style="margin-left:18px;">
+				<p style="font-weight: bold;">Counseling/Psychology Student</p>
+				<p>University: <span><%= @internship.university_a %></span></p>
+				<p>University Supervisor: <span><%= @internship.supervisor %></span></p>
+				<p>Phone: <span><%= @internship.sup_phone %></span></p>
+				<p>Email: <span><%= @internship.sup_email %></span></p>
+				<p>Graduation date: <span><%= @internship.graduation_date %></span></p>
+				<% if @internship.commit_two_semester %><p>I am prepared to commit two semesters to Scotty’s House clients.</p><% end %>
+			</div>
+		<% end %>
+		<% if @internship.LPC_intern %>
+			<div style="margin-left:18px;">
+				<p style="font-weight: bold;">LPC Intern</p>
+				<p>University: <span><%= @internship.univeristy_b %></span></p>
+				<p>LPC Supervisor: <span><%= @internship.LPC_supervisor %></span></p>
+				<p>Phone: <span><%= @internship.LPC_supervisor_phone %></span></p>
+				<p>LPC supervisor email: <span><%= @internship.LPC_supervisor_email %></span></p>
+				<% if @internship.commit_one_year %><p>I am prepared to commit one year to Scotty’s House clients.</p><% end %>
+			</div>
+		<% end %>
+		<p>Please describe your course or licensure requirements for your practicum/internship below: <br><span><%= @internship.course_requirement %></span></p>
+		<p>Please describe your experience with children: <br><span><%= @internship.experience_with_children %></span></p>
+
+		
+		
+		<h2>Additional Information</h2>
+		<p>Because of the sensitive nature of issues dealt with at Scotty’s House, we strive to place interns in the most appropriate manner possible to meet the needs of the children and families we serve.</p>
+		<p>How did you hear about Scotty’s House? <br><span><%= @internship.how_hear %></span></p>
+		<p>Have you or a loved one ever been a victim of abuse? <br><span><%= @internship.victim %></span></p>
+		<p>Briefly describe why you would like to work at Scotty’s House: <br><span><%= @internship.why_work %></span></p>
+		<p>What do you hope to do once you have obtained your degree/license? <br><span><%= @internship.hope_to_do %></span></p>
+		<p>List any other languages you speak: <br><span><%= @internship.other_language %></span></p>
+		<p>Please list any other information that may be relevant to your possible internship at SHCAC: <br><span><%= @internship.other_information %></span></p>
+
+		
+		
+		<h2>Letter of Recommendation</h2>
+		<p>Please include a letter/email of recommendation from a university professor other than your university supervisor as well as the personal references below.</p>
+		<p style="font-weight: bold;">University Professor:</p>
+		<p>Name: <span><%= @internship.reference_name_prof %></span></p>
+		<p>Phone: <span><%= @internship.reference_phone_prof %></span></p>
+		<p>Relationship: <span><%= @internship.relationship_prof %></span></p>
+		<p>How long have you known this person? <span><%= @internship.how_long_prof %></span></p>
+		<p style="font-weight: bold;">Personal References:</p>
+		<p>Name: <span><%= @internship.reference_name_personal %></span></p>
+		<p>Phone: <span><%= @internship.reference_phone_personal %></span></p>
+		<p>Relationship: <span><%= @internship.relationship_personal %></span></p>
+		<p>How long have you known this person? <span><%= @internship.how_long_personal %></span></p>
+
+		
+		<h2>Emergency Notification</h2>
+		<p>In case of an emergency while at Scotty’s House Child Advocacy Center, please notify:</p>
+		<p>Name: <span><%= @internship.emergency_name %></span></p>
+		<p>Relationship: <span><%= @internship.emergency_relationship %></span></p>
+		<p>Phone: <span><%= @internship.emergency_phone %></span></p>
+		<p>Address: <span><%= @internship.emergency_address %></span></p>
+		<p>City: <span><%= @internship.emergency_city %></span></p>
+		<p>State: <span><%= @internship.emergency_state %></span></p>
+		<p>Zip: <span><%= @internship.emergency_zip %></span></p>
+		
+	
+	</div>
+</div>

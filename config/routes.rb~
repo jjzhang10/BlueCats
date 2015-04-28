@@ -4,20 +4,25 @@ AppSys::Application.routes.draw do
   root to: 'page#home'
 	get 'home' => 'page#home'
   get 'contact' => 'page#contact'
-	get 'help' => 'page#help'
-	get 'about' => 'page#about'
-	get 'news' => 'page#news'
+	# get 'help' => 'page#help'
+	# get 'about' => 'page#about'
+	# get 'news' => 'page#news'
 	get 'signup' => 'applicants#new'
 	get 'login' => 'sessions#new'
 	get 'requirementsc' => 'page#requirementsc'
   get 'requirementsp' => 'page#requirementsp'
   get 'requirementsv' => 'page#requirementsv'
+  get 'resources' => 'page#resources'
 	post 'login' => 'sessions#create'
 	delete 'logout' => 'sessions#destroy'
 
 	resources :applicants do
-		resources :volunteers
-		resources :internships
+		resources :volunteers do
+			put 'changes'
+		end
+		resources :internships do
+			put 'changes'
+		end
 	end
 	resources :volunteers
 	resources :internships

@@ -1,5 +1,5 @@
 class ApplicantMailer < ActionMailer::Base
-  default from: "noreply@apply-scottyshouse.herokuapp.com"
+  default from: "noreply@scottyshouse-apply.herokuapp.com"
 	#layout 'mailer'
 
   def account_activation(applicant)
@@ -12,4 +12,17 @@ class ApplicantMailer < ActionMailer::Base
     @applicant=applicant
     mail to: applicant.email, subject: "Password Reset"
   end
+  
+  def internship_notification(applicant,internship)
+  	@applicant=applicant
+  	@internship=internship
+  	mail to: "shenminzhou@gmail.com", subject: "New counseling intern application"
+  end
+  
+  def volunteer_notification(applicant,volunteer)
+  	@applicant=applicant
+  	@volunteer=volunteer
+  	mail to: "shenmin@tamu.edu", subject: "New volunteer/program intern application"
+  end
+  
 end
