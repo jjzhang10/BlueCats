@@ -1,4 +1,5 @@
 <%= @volunteer.name %> has submited an application.
+<br>
 
 <%= link_to "View application", applicant_volunteer_path(@applicant,@volunteer) %>
 

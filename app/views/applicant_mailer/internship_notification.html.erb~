@@ -1,7 +1,7 @@
 <%= @internship.name %> has submited an application.
 <br>
 
-<%= link_to "View application", applicant_internship_url(@applicant,@internship) %>
+<%= link_to "View application", applicant_internship_path(@applicant,@internship) %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
