@@ -45,7 +45,7 @@ class InternshipsController < ApplicationController
 					when 3
 						render '_emergency_notification'
 					when 4
-						flash[:success]="Application created/updated."
+						flash[:success]=["Application created/updated.","You can view/edit/delete your application before submission."]
 						redirect_to @applicant
 					end
 				else
