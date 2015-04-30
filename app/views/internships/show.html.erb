@@ -73,7 +73,11 @@
 		<p>State: <span><%= @internship.emergency_state %></span></p>
 		<p>Zip: <span><%= @internship.emergency_zip %></span></p>
 		
-		<div class="center"><%= link_to "Go back", applicant_path(@applicant), class: "btn btn-lg btn-primary" %></div>
-	
+		<% if current_user.admin? && @mode!="review" %>
+			<div class="center"><%= link_to "Go back", internships_path, class: "btn btn-lg btn-primary" %></div>
+		<% else %>
+			<div class="center"><%= link_to "Go back", applicant_path(@applicant), class: "btn btn-lg btn-primary" %></div>
+		<% end %>
+		
 	</div>
 </div>

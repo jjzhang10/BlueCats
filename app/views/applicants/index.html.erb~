@@ -3,9 +3,7 @@
 <%= will_paginate %>
 
 <ul class="applicants"> 
-	 
-    <%= render @applicants %>  
-  
+	<%= render @applicants %>    
 </ul>
 
 <%= will_paginate %>

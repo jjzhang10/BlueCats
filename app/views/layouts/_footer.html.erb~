@@ -1,12 +1,10 @@
 <footer class="footer">
   <small>
-    Scotty's House
+    Scotty's House. 2424 Kent Street Bryan, Texas 77802
   </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><%= link_to "News", news_path %></li>
-    </ul>
+  <nav class="text-primary">
+  	<% if !current_user.nil? && current_user.admin? %>
+			<%= link_to "Administrator Interface", applicant_path(current_user), class: "pull-right" %>
+		<% end %>
   </nav>
 </footer>

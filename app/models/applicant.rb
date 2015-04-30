@@ -77,6 +77,13 @@ class Applicant < ActiveRecord::Base
   	reset_sent_at < 2.hours.ago
   end
   
+  def self.search(applicant)
+  	applicants=where(activated: true)
+  	by_name=applicants.where("name like ?", "%#{applicant}%") 
+  	by_email=applicants.where("email like ?", "%#{applicant}%")
+  	by_name+by_email
+  end
+  
 end
 
 

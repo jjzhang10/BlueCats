@@ -112,7 +112,11 @@
 <p>Relationship</p>
 <p class="bold"><%= @volunteer.emergency_relation%></p>
 
-<div class="center"><%= link_to "Go back", applicant_path(@applicant), class: "btn btn-lg btn-primary" %></div>
+		<% if current_user.admin? && @mode!="review" %>
+			<div class="center"><%= link_to "Go back", volunteers_path(type: "#{@type}"), class: "btn btn-lg btn-primary" %></div>
+		<% else %>
+			<div class="center"><%= link_to "Go back", applicant_path(@applicant), class: "btn btn-lg btn-primary" %></div>
+		<% end %>
 
 	</div>
 </div>

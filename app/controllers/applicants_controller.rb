@@ -13,6 +13,9 @@ class ApplicantsController < ApplicationController
 		@applicant=Applicant.find(params[:id])
 		@volunteers=@applicant.volunteers.all
 		@internships=@applicant.internships.all
+		if current_user.admin?
+			@mode="review"
+		end
 		redirect_to root_url and return unless @applicant.activated?
 	end
 
@@ -52,6 +55,10 @@ class ApplicantsController < ApplicationController
 	
 	def index
 		@applicants=Applicant.where(activated: true).paginate(page: params[:page], per_page: 15)
+	end
+	
+	def search
+		@applicants=Applicant.search(params[:search]).uniq;
 	end
 
 	private

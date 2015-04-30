@@ -12,7 +12,7 @@
 	 <span><%= application %></span>
 	 <br>
 	 <%= link_to "View", applicant_internship_path(@applicant, internship) %>
-	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant) && !internship.submited? %>
+	 <% if !current_user.nil? && !current_user.admin? && current_user?(@applicant) && !internship.submited %>
 	 	 | <%= link_to "Edit", edit_applicant_internship_path(@applicant, internship) %> 
 	 	 | <%= link_to "Delete", applicant_internship_path(@applicant, internship), method: :delete, data: {confirm: "Are you sure?"} %>
 	 	 <%= link_to "Submit", change_status_applicant_internship_path(@applicant, internship, status: {submited: true}), method: :put, class: 'pull-right btn btn-warning' %>

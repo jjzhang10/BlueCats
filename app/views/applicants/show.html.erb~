@@ -15,8 +15,17 @@
 			<p style="font-size:2.6em; margin-top:20px;">Administrator Interface</p>
 			<p style="font-size:2em;"><%= link_to "View all applicants", applicants_path %></p>
 			<p style="font-size:2em;"><%= link_to "View all counselling intern applications", internships_path %></p>
-			<p style="font-size:2em;"><%= link_to "View all volunteer applications", volunteers_path(type="volunteer") %></p>
+			<p style="font-size:2em;"><%= link_to "View all volunteer applications", volunteers_path(type: "volunteer") %></p>
 			<p style="font-size:2em;"><%= link_to "View all program intern applications", volunteers_path(type: "program") %></p>
+			<%= form_tag(search_applicants_path, class: "form-inline") do %>
+				<label>Search Applicants</label>
+				<div class="form-group">
+					<div class="input-group">
+						<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter name or email" %>
+					</div>
+				</div>
+				<button class="btn btn-primary" type="submit">Search</button>
+			<% end %>
 		</div>
 	<% else %>
 		<div class="jumbotron">

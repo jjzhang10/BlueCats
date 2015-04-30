@@ -47,8 +47,14 @@
 			 <div style="font-size: 1.8em; ">Applicant: <span class="text-primary"><%= volunteer.name %></span></div>
 			 <div style="font-size: 1.2em;" class="text-primary"><%= time %></div>
 			 <div style="font-size: 1.2em;" class="text-success"><%= application %></div>
-			 <%= link_to "View", applicant_volunteer_path(volunteer.applicant, volunteer), class: "btn bg-primary " %>
+			 <% if @type=="volunteer" %>
+					<%= link_to "View", applicant_volunteer_path(volunteer.applicant, volunteer,type: "volunteer"), class: "btn bg-primary " %>
+				<% elsif @type=='program' %>
+					<%= link_to "View", applicant_volunteer_path(volunteer.applicant, volunteer,type: "program"), class: "btn bg-primary " %>
+				<% end %>
 		</li>
 	<% end %>
+	<br>
+	<div class="center"><%= link_to "Go back", applicant_path(current_user), class: "btn btn-lg btn-primary" %></div>
 </ul>
 

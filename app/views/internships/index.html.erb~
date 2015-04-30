@@ -1,6 +1,6 @@
 <h1>Internship Applications List</h1>
 
-<%= will_paginate %>
+<div class="volunteers col-sm-offset-3 col-sm-6"><%= will_paginate %></div>
 
 <ul class="internships col-sm-offset-3 col-sm-6"> 
 	<% @internships.each do |internship| %> 
@@ -19,6 +19,7 @@
 			 <%= link_to "View", applicant_internship_path(internship.applicant, internship), class: "btn bg-primary " %>
 		</li>
 	<% end %>
+	<div class="center"><%= link_to "Go back", applicant_path(current_user), class: "btn btn-lg btn-primary" %></div>
 </ul>
 
-<%= will_paginate %>
+

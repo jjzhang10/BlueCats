@@ -6,9 +6,10 @@
 	Applications List
 </h1>
 
-<%= will_paginate, class: "volunteers col-sm-offset-3 col-sm-6" %>
+<div class="volunteers col-sm-offset-3 col-sm-6"><%= will_paginate %></div>
 
 <ul class="volunteers col-sm-offset-3 col-sm-6"> 
+	
 	<% @volunteers.each do |volunteer| %> 
 		<% if @type=="volunteer" && volunteer.pragram_internship %>
 			<% next %>
@@ -49,5 +50,7 @@
 			 <%= link_to "View", applicant_volunteer_path(volunteer.applicant, volunteer), class: "btn bg-primary " %>
 		</li>
 	<% end %>
+	<br>
+	<div class="center"><%= link_to "Go back", applicant_path(current_user), class: "btn btn-lg btn-primary" %></div>
 </ul>
 

@@ -8,7 +8,9 @@ class VolunteersController < ApplicationController
 	
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
-		@volunteer=@applicant.volunteers.where(id: params[:id]).first		
+		@volunteer=@applicant.volunteers.where(id: params[:id]).first	
+		@type=params[:type]	
+		@mode=params[:mode]
 	end
 	
 	def new

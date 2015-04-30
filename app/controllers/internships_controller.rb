@@ -9,6 +9,7 @@ class InternshipsController < ApplicationController
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@internship=@applicant.internships.where(id: params[:id]).first		
+		@mode=params[:mode]
 	end
 	
 	def new

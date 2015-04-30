@@ -17,6 +17,9 @@ AppSys::Application.routes.draw do
 	delete 'logout' => 'sessions#destroy'
 
 	resources :applicants do
+		collection do
+			get 'search'
+		end
 		resources :volunteers do
 			member do
 				put 'change_status'

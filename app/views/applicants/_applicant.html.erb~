@@ -1,9 +1,9 @@
 <li>
 	
 	 <%= gravatar_for applicant, size: 50 %>
-	 <%= link_to applicant.name, applicant %>
+	 <%= link_to applicant.name, applicant_path(applicant, mode: review) %>
 	 <% if !current_user.nil? && current_user.admin? && !current_user?(applicant)%>
-	 	 | <%= link_to "Delete", applicant, method: :delete, data: {confirma: "Are you sure?"} %>
+	 	 | <%= link_to "Delete", applicant, method: :delete, data: {confirm: "Are you sure?"} %>
 	 <% end %>
 	
 </li>
