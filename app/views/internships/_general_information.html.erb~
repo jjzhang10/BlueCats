@@ -82,10 +82,33 @@
       
       <%= f.label :experience_with_children, "Please describe your experience with children:" %>
       <%= f.text_area :experience_with_children, class: 'form-control', rows: "5" %>
-      
-      <%= hidden_field_tag :step, 1 %>
 
-      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "0", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Next, name: "step",value: "2", class: "btn btn-primary col-md-2 col-md-offset-2" %>
     <% end %>
   </div>
 </div>
+
+<script>
+	window.onload = function(){
+		c1=document.getElementById("internship_counseling_student");
+		c2=document.getElementById("internship_LPC_intern");
+		c1.onchange=function(){
+			s=document.getElementById("counseling_student")
+			if (c1.checked){
+				s.setAttribute("class", "");
+			} else {
+				s.setAttribute("class", "hide");
+			}
+		}
+		c2.onchange=function(){
+			s=document.getElementById("LPC_intern")
+			if (c2.checked){
+				s.setAttribute("class", "");
+			} else {
+				s.setAttribute("class", "hide");
+			}
+		}
+	}
+</script>

@@ -25,7 +25,7 @@
       <p>Personal References:</p>      
       
       <%= f.label :reference_name_personal, "Name" %>
-      <%= f.text_field :, class: 'form-control' %>
+      <%= f.text_field :reference_name_personal, class: 'form-control' %>
       
       <%= f.label :reference_phone_personal, "Phone" %>
       <%= f.text_field :reference_phone_personal, class: 'form-control' %>
@@ -40,7 +40,9 @@
       
       <%= hidden_field_tag :step, 3 %>
 
-      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "1", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Next, name: "step",value: "3", class: "btn btn-primary col-md-2 col-md-offset-2" %>
     <% end %>
   </div>
 </div>

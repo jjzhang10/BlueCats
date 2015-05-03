@@ -33,6 +33,7 @@ class VolunteersController < ApplicationController
 	def edit
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@volunteer=@applicant.volunteers.where(id: params[:id]).first
+		@type=params[:type]
 		render 'new'
 	end
 	
@@ -40,8 +41,11 @@ class VolunteersController < ApplicationController
 		@applicant=current_user
 		step=params[:step].to_i
 		@volunteer=@applicant.volunteers.where(id: params[:volunteer_id]).first
+		@type=params[:type]
 				if @volunteer.update_attributes(params[:volunteer])
 					case step
+					when 0
+						render 'new'
 					when 1
 						render '_general_information'
 					when 2

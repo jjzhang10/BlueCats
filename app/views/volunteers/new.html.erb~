@@ -1,3 +1,4 @@
+<%debugger%>
 <% if @type=="volunteer"%>
 	<% show="shown"%>
 	<% type="Volunteer "%>
@@ -66,12 +67,13 @@
       <%= f.check_box :pragram_internship, {checked: true} if @type=="program"%>
       </div>
       
-      <%= f.label :days_available, "Days/Times you will be available to Volunteer(MM/DD/YYYY-MM/DD/YYYY):" %>
+      <%= f.label :days_available, "Days/Times you will be available to Volunteer (MM/DD/YYYY-MM/DD/YYYY):" %>
       <%= f.text_field :days_available, class: 'form-control' %>
       
       <%= hidden_field_tag :step, 1 %>
       <%= hidden_field_tag :type, @type %>
       <%= hidden_field_tag :volunteer_id, @volunteer.id %>
+      <%= hidden_field_tag :type, @type %>
 
       <%= f.submit "Next", class: "btn btn-primary" %>
     <% end %>

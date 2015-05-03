@@ -28,10 +28,10 @@
       
       <%= f.label :emergency_zip, "Zip" %>
       <%= f.text_field :emergency_zip, class: 'form-control' %>
-      
-      <%= hidden_field_tag :step, 4 %>
 
-      <%= f.submit "Finish", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "2", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Finish, name: "step",value: "4", class: "btn btn-primary col-md-2 col-md-offset-2" %>
     <% end %>
   </div>
 </div>

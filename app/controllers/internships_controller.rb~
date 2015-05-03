@@ -9,9 +9,7 @@ class InternshipsController < ApplicationController
 	def show
 		@applicant=Applicant.where(id: params[:applicant_id]).first
 		@internship=@applicant.internships.where(id: params[:id]).first		
-		if current_user.admin?
-			@mode="review"
-		end
+		@mode=params[:mode]
 	end
 	
 	def new
@@ -63,7 +61,7 @@ class InternshipsController < ApplicationController
 						render '_emergency_notification'
 					end
 				end
-		
+
 	end
 	
 	def destroy

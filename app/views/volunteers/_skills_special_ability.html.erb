@@ -37,11 +37,11 @@
       <%= f.label :handicap_experience, "In what capacity? " %>
       <%= f.text_field :handicap_experience, class: 'form-control' %>
 			
-			<%= hidden_field_tag :step, 4 %>
-			
 			<%= hidden_field_tag :volunteer_id, @volunteer.id %>
 
-      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "2", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Next, name: "step",value: "4", class: "btn btn-primary col-md-2 col-md-offset-2" %>
 		<% end %>
   </div>
 </div>

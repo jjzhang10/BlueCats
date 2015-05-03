@@ -39,6 +39,8 @@ class InternshipsController < ApplicationController
 		@internship=@applicant.internships.where(id: params[:id]).first
 				if @internship.update_attributes(params[:internship])
 					case step
+					when 0
+						render '_general_information'
 					when 1
 						render '_additional_information'
 					when 2
@@ -61,7 +63,7 @@ class InternshipsController < ApplicationController
 						render '_emergency_notification'
 					end
 				end
-		
+
 	end
 	
 	def destroy

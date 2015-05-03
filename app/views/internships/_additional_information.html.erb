@@ -26,10 +26,9 @@
       <%= f.label :other_information, "Please list any other information that may be relevant to your possible internship at SHCAC: " %>
       <%= f.text_area :other_information, class: 'form-control', rows: "5" %>
 
-      
-      <%= hidden_field_tag :step, 2 %>
-
-      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "0", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Next, name: "step",value: "2", class: "btn btn-primary col-md-2 col-md-offset-2" %>
     <% end %>
   </div>
 </div>

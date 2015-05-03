@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 ">
-    <%= form_for([@applicant, @applicant.volunteers.new]) do |f| %>
+    <%= form_for(@volunteer) do |f| %>
 			<%= render 'shared/error_messages' %>
 			
 			<%= f.label :how_learn_about, "How did you learn about Scotty’s House and our Volunteer Program?" %>
@@ -37,11 +37,17 @@
       <% end %>
 			<%= f.text_field :employer_name, class: 'form-control' %>
 			
-			<%= hidden_field_tag :step, 2 %>
-			
+			<%= form_tag '/upload', multipart: true do %>
+				<label for="file">File to Upload</label> 
+				<%= file_field_tag "file" %>
+				<%= submit_tag %>
+			<% end %>
 			<%= hidden_field_tag :volunteer_id, @volunteer.id %>
+			<%= hidden_field_tag :type, @type %>
 
-      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= f.button  :Previous, name: "step",value: "0", class: "btn btn-warning col-md-2 col-md-offset-3"%>      
+      <div></div>
+      <%= f.button :Next, name: "step",value: "2", class: "btn btn-primary col-md-2 col-md-offset-2" %>
 		<% end %>
   </div>
 </div>
