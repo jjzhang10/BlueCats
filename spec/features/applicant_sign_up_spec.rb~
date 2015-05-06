@@ -1,0 +1,6 @@
+require 'spec_helper'
+require 'rails_helper'
+
+feature "only valid information will be saved" do
+
+end

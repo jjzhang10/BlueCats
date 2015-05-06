@@ -1,0 +1,7 @@
+shenmin:
+	id:1
+	name: shenmin
+	email: shenminzhou@gmail.com
+	password: 123456
+	password_confirmation: 123456
+	admin: true

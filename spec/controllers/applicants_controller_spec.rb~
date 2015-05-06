@@ -1,0 +1,15 @@
+require 'spec_helper'
+require 'rails_helper'
+ 
+describe ApplicantsController do
+	it "should get new" do
+		get :new
+		response.should be_success
+	end
+	
+	it "should call the model method that performs applicant search" do
+		fake_results=[mock('applicant1'),mock('applicant2')]
+		Applicant.should_receive(:search).with('test').and_return(fake_results)
+		get :search_applicants_path, {search: 'test'}
+	end
+end
