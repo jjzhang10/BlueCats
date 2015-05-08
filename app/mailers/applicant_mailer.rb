@@ -16,13 +16,13 @@ class ApplicantMailer < ActionMailer::Base
   def internship_notification(applicant,internship)
   	@applicant=applicant
   	@internship=internship
-  	mail to: "shenminzhou@gmail.com", subject: "New counseling intern application"
+  	mail to: "mscarpace@scottyshouse.org", subject: "New counseling intern application"
   end
   
   def volunteer_notification(applicant,volunteer)
   	@applicant=applicant
   	@volunteer=volunteer
-  	mail to: "shenmin@tamu.edu", subject: "New volunteer/program intern application"
+  	mail to: "dpeterson@scottyshouse.org", subject: "New volunteer/program intern application"
   end
   
   def internship_confirmation(applicant,internship)
