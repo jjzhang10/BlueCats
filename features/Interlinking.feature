@@ -1,0 +1,26 @@
+Feature: Applicant can go through different pages of application form
+
+Scenario: Go next
+  Given I am logged in as applicant
+  When I follow "New Volunteer Application"
+  Then I should see "Volunteer Application "
+  When I fill in "Name" with "Shenmin"
+  When I fill in "Date of Birth(MM/DD/YYYY)" with "01/01/1999"
+  When I fill in "Email" with "shenmin@shenmin.com"
+  When I press "Next"
+  Then I should see "General Information"
+  When I press "Next"
+  Then I should see "Experience"
+  When I press "Next"
+  Then I should see "Skills & Special Abilities"
+  When I press "Next"
+  Then I should see "Emergency Notification"
+  Then I should see "Finish"
+  When I press "Previous"
+  Then I should see "Skills & Special Abilities"
+  When I press "Previous"
+  Then I should see "Experience"
+  When I press "Previous"
+  Then I should see "General Information"
+  When I press "Previous"
+  Then I should see "Program Intern Application "
